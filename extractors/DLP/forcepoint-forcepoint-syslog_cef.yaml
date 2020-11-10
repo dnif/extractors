@@ -1,0 +1,54 @@
+schema-version: 1.0
+extractor-id: 208
+source-name: FORCEPOINT-CEF
+source-type: DLP
+source-description: extractor for Forcepoint DLP
+provides-streams:
+- DLP
+master-filters:
+- CEF\:\d+\|Forcepoint\|Forcepoint\s+DLP\|
+event-details:
+- first-match: CEF\:\d+\|Forcepoint\|Forcepoint\s+DLP\|.*?act\=
+  decoder: custom
+  decoder-regex: (\w+)\=([^\s]*)
+  event-key-format: '{act}'
+  event-key-mapping:
+    'Blocked':
+      annotate:
+        Stream: DLP
+        Action: FILE_BLOCKED
+        Status: FAILED
+      translate:
+        duser: DstUser
+        fname: FileName
+        suser: SrcUser
+        cat: Category
+        sourceHost: SrcHost
+        sourceIp: SrcIP
+        severityType: Severity
+        destinationHosts: DstHost
+    'Permitted':
+      annotate:
+        Stream: DLP
+        Action: FILE_ALLOWED
+        Status: PASSED
+      translate:
+        duser: DstUser
+        fname: FileName
+        suser: SrcUser
+        cat: Category
+        sourceHost: SrcHost
+        sourceIp: SrcIP
+        severityType: Severity
+        destinationHosts: DstHost
+
+  fallback:
+      annotate:
+        EventName: Generic Forcepoint DLP Event
+        Stream: OTHER
+      translate:
+        timeStamp: SystemTstamp  
+
+  globals:
+    translate:
+      timeStamp: SystemTstamp
