@@ -30,8 +30,6 @@ event-details:
       annotate:
         EventName: Generic Trend-Micro Endpoint Event
         Stream: OTHER
-      translate: 
-        rt: SystemTstamp
 
   globals:
     translate: 
@@ -65,6 +63,7 @@ event-details:
       translate:
         dhost: DstHost
         cat: Category
+        VirusName: VirusName 
         filePath: FilePath
         fname: FileName
         dst: DstIP
@@ -75,13 +74,11 @@ event-details:
       annotate:
         EventName: Generic Trend-Micro Endpoint Event
         Stream: OTHER
-      translate: 
-        rt: SystemTstamp
 
   globals:
     translate: 
       rt: SystemTstamp
-      dvchost: System
+      dvchost: SystemName
       Header-5: Signature 
       Header-6: Severity   
 
@@ -104,6 +101,7 @@ event-details:
         filePath: FilePath
         dst: DstIP
         fileHash: FileHash
+        msg: Message
         duser: DstUser
         suser: SrcUser
         shost: SrcHost 
@@ -118,6 +116,7 @@ event-details:
         filePath: FilePath
         dst: DstIP
         fileHash: FileHash
+        msg: Message
         cat: Category
         duser: DstUser
         suser: SrcUser
@@ -127,13 +126,11 @@ event-details:
       annotate:
         EventName: Generic Trend-Micro Endpoint Event
         Stream: OTHER
-      translate: 
-        rt: SystemTstamp
 
   globals:
     translate: 
       rt: SystemTstamp
-      dvchost: System
+      dvchost: SystemName 
       Header-5: Signature 
       Header-6: Severity  
 
@@ -168,12 +165,10 @@ event-details:
       annotate:
         EventName: Generic Trend-Micro Endpoint Event
         Stream: OTHER
-      translate: 
-        rt: SystemTstamp
 
   globals:
     translate: 
-      dvchost: System
+      dvchost: SystemName
       rt: SystemTstamp
       Header-5: Signature 
       Header-6: Severity  
@@ -201,12 +196,10 @@ event-details:
       annotate:
         EventName: Generic Trend-Micro Endpoint Event
         Stream: OTHER
-      translate: 
-        rt: SystemTstamp
 
   globals:
     translate: 
-      dvchost: System
+      dvchost: SystemName
       rt: SystemTstamp 
       Header-5: Signature 
       Header-6: Severity     
