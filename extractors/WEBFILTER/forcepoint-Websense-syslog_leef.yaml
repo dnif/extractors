@@ -1,0 +1,88 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 76
+source-name: WEBSENSE
+source-type: WEBFILTER
+source-description: Extractor for Websense Webfilter
+provides-streams:
+- WEBFILTER
+master-filters:
+- 'LEEF\:.*?\|Websense\|Security'
+event-details:
+- first-match: 'LEEF\:.*?\|Websense\|Security\|.*?\|transaction\:permitted\|'
+  decoder: custom
+  decoder-regex: '([\w\-]+)\=(\"[^\"]*\"|[^\s]*)'
+  event-key-format: ''
+  event-key-mapping:
+    '': 
+      annotate:
+        Stream: WEBFILTER
+        Action: URL_ALLOWED
+        Status: PASSED
+      translate:
+        usrName: User
+        src: SrcIP
+        srcPort: SrcPort
+        srcBytes: TXLen
+        dstBytes: RXLen
+        dst: DstIP
+        dstPort: DstPort
+        method: Method
+        userAgent: UserAgent
+        url: URL 
+
+  fallback:
+      annotate:
+        EventName: Generic Websense Webfilter Event
+        Stream: OTHER 
+
+  globals:
+    translate:
+      sev: Severity
+
+  subs: &d001    
+    Severity: 
+      '0': 'LOW'
+      '1': 'LOW'
+      '2': 'LOW'
+      '3': 'LOW'
+      '4': 'MEDIUM' 
+      '5': 'MEDIUM' 
+      '6': 'MEDIUM' 
+      '7': 'HIGH' 
+      '8': 'HIGH'
+      '9': 'VERY-HIGH' 
+      '10': 'VERY-HIGH'
+
+- first-match: 'LEEF\:.*?\|Websense\|Security\|.*?\|transaction\:blocked\|'
+  decoder: custom
+  decoder-regex: '([\w\-]+)\=(\"[^\"]*\"|[^\s]*)'
+  event-key-format: ''
+  event-key-mapping:
+    '': 
+      annotate:
+        Stream: WEBFILTER
+        Action: URL_BLOCKED
+        Status: FAILED
+      translate:
+        usrName: User
+        src: SrcIP
+        srcPort: SrcPort
+        srcBytes: TXLen
+        dstBytes: RXLen
+        dst: DstIP
+        dstPort: DstPort
+        method: Method
+        userAgent: UserAgent
+        url: URL
+
+  fallback:
+      annotate:
+        EventName: Generic Websense Webfilter Event
+        Stream: OTHER 
+        
+  globals:
+    translate: 
+      sev: Severity
+
+  subs: *d001       
