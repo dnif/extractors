@@ -1,0 +1,84 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 60
+source-name: PFSENSE
+source-type: FIREWALL
+source-description: Extractor for pfSense Firewall
+provides-streams:
+- NETWORK-FIREWALL
+master-filters:
+- '\s+filterlog\:\s+'
+event-details:
+- first-match: 'filterlog\:\s+(?:9|5|44|42|95|98|31|103|118|120|99|111)\,.*?\,\d+\,.*?\,\w+\,\w+\,\w+\,\d+\,\w+\,.*?\,\d+\,\d+\,\d+\,\w+\,\d+\,\w+\,\d+\,[\d\.\:\w]+\,'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\w{3}\s+\d{1,2}\s+\d{2}\:\d{2}\:\d{2})\s+filterlog\:\s+.*?\,.*?\,.*?\,.*?\,(?P<interface>.*?)\,(?P<reason>.*?)\,(?P<action>.*?)\,(?P<flow>.*?)\,.*?\,.*?\,.*?\,.*?\,.*?\,.*?\,.*?\,.*?\,(?P<protocol>.*?)\,.*?\,(?P<src>.*?)\,(?P<dst>.*?)\,(?:(?P<sport>\d+)\,(?P<dport>\d+)\,)?'
+  event-key-format: '{action}'
+  event-key-mapping:
+    'block':
+      annotate:
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_BLOCKED
+        Status: FAILED
+      translate:
+        flow: Flow
+        interface: Iface
+        protocol: Proto
+        src: SrcIP
+        dst: DstIP
+        sport: SrcPort
+        dport: DstPort
+    'pass': 
+      annotate:
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_ALLOWED
+        Status: PASSED
+      translate:
+        flow: Flow
+        interface: Iface
+        protocol: Proto
+        src: SrcIP
+        dst: DstIP
+        sport: SrcPort
+        dport: DstPort   
+
+  fallback:
+      annotate:
+        EventName: Generic pfSense Firewall Event
+        Stream: OTHER
+      translate:
+        datetime: SystemTstamp  
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+
+- first-match: 'filterlog\:\s+(?:5|6)\,.*?\,\d+\,.*?\,\w+\,\w+\,\w+\,\d+\,\w+\,\w+\,\d+\,\w+\,\d+\,\d+\,[\w\d\:\.]+\,'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\w{3}\s+\d{1,2}\s+\d{2}\:\d{2}\:\d{2})\s+filterlog\:\s+.*?\,.*?\,.*?\,.*?\,(?P<interface>.*?)\,(?P<reason>.*?)\,(?P<action>.*?)\,(?P<flow>.*?)\,.*?\,.*?\,.*?\,.*?\,(?P<protocol>.*?)\,.*?\,.*?\,(?P<src>.*?)\,(?P<dst>.*?)\,(?:(?P<sport>\d+)\,(?P<dport>\d+)\,)?'
+  event-key-format: '{action}'
+  event-key-mapping:
+    'block':
+      annotate:
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_BLOCKED
+        Status: FAILED
+      translate:
+        flow: Flow
+        interface: Iface
+        protocol: Proto
+        src: SrcIP
+        dst: DstIP
+        sport: SrcPort
+        dport: DstPort
+
+  fallback:
+      annotate:
+        EventName: Generic pfSense Firewall Event
+        Stream: OTHER
+      translate:
+        datetime: SystemTstamp  
+
+  globals:
+    translate:
+      datetime: SystemTstamp  
+     #reason: Reason     
