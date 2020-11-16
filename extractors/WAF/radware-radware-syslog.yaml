@@ -1,0 +1,203 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 153
+source-name: RADWARE
+source-type: WAF
+source-description: extractor for Radware WAF
+provides-streams:
+- WAF
+- AUTHENTICATION
+master-filters:
+- '\s+\S+\s+AlteonOS\s+.*?\:\s+'
+- 'OLF\d+\s+appwall\s+\d+\.\d+\s+date\=\"\d+\/\d+\/\d+\s+\d+\:\d+\:\d+\s+'
+- '\d+\-\d+\-\d+T\d+\:\d+\:\d+.*?ServerName\=\".*?\"\s+Type\=\S+\s+Priority\=\S+\s+'
+event-details:  
+- first-match: '\s+AlteonOS\s+.*?\:\s+\w+.*?(?:timeout|login|logout)\s+from(?:\s+host)?\s+\S+'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\d{4}\-\d{1,2}\-\d{2}T\d{2}\:\d{2}\:\d{2})\+.*?\s+(?P<hostname>\S+)\s+(?P<loglevel>\S+)\s+.*?\:(?P<message>\s+(?P<user>\S+).*?(?P<action>\w+)\s+from(?:\s+host)?\s+(?P<src>[\w\.\:]+)\s+.*)'
+  event-key-format: '{action}'
+  event-key-mapping:
+    'timeout':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGIN_SESSION_DISCONNECTED
+        Status: PASSED
+      translate: 
+        src: SrcIP
+        user: User
+    'login':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGIN
+        Status: PASSED
+      translate: 
+        src: SrcIP
+        user: User
+    'logout':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGOUT
+        Status: PASSED
+      translate: 
+        src: SrcIP
+        user: User        
+        
+  fallback:
+      annotate:
+        EventName: Generic Radware WAF Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+      loglevel: LogLevel
+      hostname: System
+     #message: Message
+
+- first-match: '\s+AlteonOS\s+.*?\:\s+Failed\s+login\s+attempt.*?\s+from\s+host\s+\S+\.'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\d{4}\-\d{1,2}\-\d{2}T\d{2}\:\d{2}\:\d{2})\+.*?\s+(?P<hostname>\S+)\s+(?P<loglevel>\S+)\s+.*?\:(?P<message>\s+(?P<action>Failed\s+login).*?host\s+(?P<src>\S+)\.)'
+  event-key-format: '{action}'
+  event-key-mapping:
+    'Failed login':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGIN
+        Status: Failed
+        User: '-'
+      translate: 
+        src: SrcIP   
+        
+  fallback:
+      annotate:
+        EventName: Generic Radware WAF Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+      loglevel: LogLevel
+      hostname: System
+     #message: Message     
+
+- first-match: 'OLF\d+\s+appwall\s+\d+\.\d+\s+date\='
+  decoder: regex
+  decoder-regex: 'OLF\d+\s+appwall\s+\d+\.\d+\s+date\=\"(?P<date>\d+\/\d+\/\d+\s+\d+\:\d+\:\d+)\s+\+\d+\"\s+.*?et\=(?P<et>\S+)\s+sev\=(?P<sev>\S+)\s+subj\=\"(?P<subj>.*?)\"\s+evtid\=(?P<evtid>\S+)\s+hostname\=(?P<hostname>\S+)\s+hostip\=\S+\s+module\=(?P<module>.*?)\s+devtype\=\"(?P<devtype>.*?)\"\s+.*?dir\=(?P<dir>.*?)\s+attackrisk\=(?P<attackrisk>.*?)\s+engineversion\=(?P<engineversion>.*?)\s+webappname\=(?P<webappname>.*?)\s+tunnel\=(?P<tunnel>.*?)\s+proto\=(?P<proto>.*?)\s+SVC\=.*?\s+method\=(?P<method>.*?)\s+(?:directory\=(?P<directory>.*?)\s+uri\=(?P<uri>.*?)\s+)?msg\=\"(?P<msg>.*?)\".*?sip\=(?P<sip>.*?)\s+.*?extip\=.*?sport\=(?P<sport>.*?)\s+dip\=(?P<dip>.*?)\s+dport\=(?P<dport>.*?)\s+dhost\=(?P<dhost>.*?)\s+policy\=(?P<policy>.*?)\s+.*?useraction\=\"(?P<useraction>.*?)\"\s+.*?attackname\=\"?(?P<attackname>.*?)\"?\s+threatcategory\=\"(?P<threatcategory>.*?)\"\s+.*?user\=(?P<user>.*?)\s+(?:.*?apath\S+\=)?.*?req\=\"(?P<req>.*?)\"'
+  event-key-format: '{subj}'
+  event-key-mapping:
+    'Pattern Violation Detected':           
+      annotate:
+        Stream: WAF
+        Action: THREAT_DETECTED
+        Status: PASSED
+      translate: 
+        attackrisk: RiskLevel
+        uri: URL
+        method: Method
+        proto: Proto
+        dir: Flow
+        sip: SrcIP
+        sport: SrcPort
+        dip: DstIP
+        dport: DstPort  
+        dhost: DstHost 
+        useraction: ActionTaken
+        attackname: AtkName
+        threatcategory: ThreatCategory
+        user: User
+        req: Request
+    'Empty response page returned to the web user':      
+      annotate:
+        Stream: WAF
+        Action: THREAT_DETECTED
+        Status: PASSED
+      translate: 
+        attackrisk: RiskLevel
+        uri: URL
+        method: Method
+        proto: Proto
+        dir: Flow
+        sip: SrcIP
+        sport: SrcPort
+        dip: DstIP
+        dport: DstPort  
+        dhost: DstHost 
+        useraction: ActionTaken
+        attackname: AtkName
+        threatcategory: ThreatCategory
+        user: User
+        req: Request
+    'HTTP request not RFC-compliant':      
+      annotate:
+        Stream: WAF
+        Action: THREAT_DETECTED
+        Status: PASSED
+      translate: 
+        attackrisk: RiskLevel
+        uri: URL
+        method: Method
+        proto: Proto
+        dir: Flow
+        sip: SrcIP
+        sport: SrcPort
+        dip: DstIP
+        dport: DstPort  
+        dhost: DstHost 
+        useraction: ActionTaken
+        attackname: AtkName
+        threatcategory: ThreatCategory
+        user: User
+        req: Request     
+        
+  fallback:
+      annotate:
+        EventName: Generic Radware WAF Event
+        Stream: OTHER
+      translate:  
+        date: SystemTstamp
+
+  globals:
+    translate:
+      date: SystemTstamp
+      sev: Severity
+      hostname: System
+     #msg: Message          
+
+- first-match: '\s+ServerName\=.*?Type\=.*?Priority\=.*?Object\=.*?Host\=.*?ParamType\=.*?Description\='
+  decoder: regex
+  decoder-regex: '(?P<datetime>\d{4}\-\d{1,2}\-\d{2}T\d{2}\:\d{2}\:\d{2})(?:\.\d+)?.*?\.(?P<loglevel>\S+)\s+(?P<hostname>.*?)\s+ServerName\=\"(?P<ServerName>.*?)\"\s+Type\=(?P<Type>\S+)\s+Priority\=(?P<Priority>\S+)\s+Resource\=(?P<Resource>\S+)\s+Object\=(?P<Object>\S+)\s+WebApp\=\"(?P<WebApp>.*?)\"\s+.*?Host\=\"(?P<Host>.*?)\"\s+.*?SourceIP\=(?P<SourceIP>.*?)\s+SourcePort\=(?P<SourcePort>.*?)\s+Title\=\"(?P<Title>.*?)\"\s+URI\=\"(?P<URI>.*?)\"\s+.*?WebUser\=\"(?P<WebUser>.*?)\"\s+TransID\=(?P<TransID>\w+).*?\s+RuleID\=(?P<RuleID>.*?)\s+ParamName\=\"(?P<ParamName>.*?)\"\s+ParamValue\=\"(?P<ParamValue>.*?)\"\s+ParamType\=\"(?P<ParamType>.*?)\"\s+IsPassive\=(?P<IsPassive>\S+)\s+Description\=\"(?P<Description>.*?)\"(?:\s+Attackname\=\"(?P<Attackname>.*?)\")?(?:\s+Threatcategory\=\"(?P<Threatcategory>.*?)\")?'
+  event-key-format: ''
+  event-key-mapping:
+    '':           
+      annotate:
+        Stream: WAF
+        Action: URL_BLOCKED
+        Status: FAILED
+      translate: 
+        Title: AtkMsg
+        URI: URL
+        SourceIP: SrcIP
+        SourcePort: SrcPort
+        Host: SrcHost
+        Attackname: AtkName
+        Threatcategory: ThreatCategory
+        WebUser: Use
+        Description: AtkDesc
+        
+  fallback:
+      annotate:
+        EventName: Generic Radware WAF Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+      Priority: Severity
+      loglevel: LogLevel
+      hostname: System      
