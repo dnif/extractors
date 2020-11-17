@@ -1,0 +1,74 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 182
+source-name: APACHE2-QR
+source-type: WEBSERVER
+source-description: extractor for Apache Webserver
+provides-streams:
+- WEBSERVER
+master-filters:
+- 'AgentDevice\=.*?\[\d+\/\w+\/\d+\:\d+\:\d+\:\d+\s+\+\d+\]\s+'
+- 'AgentDevice\=.*?\s+\d+\-\d+\-\d+\s+\d+\:\d+\:\d+\s+\w+\s+\S+\s+\d+\s+(?:\d+|\-)\s+'
+event-details:  
+- first-match: '\w+\s+\d+\s+\d+\:\d+\:\d+\s+.*?\[.*?\]\s+\"\S+\s+\S+\s+\S+\"\s+\d+\s+'
+  decoder: regex
+  decoder-regex: '\[(?P<datetime>\d+\/\w+\/\d+\:\d+\:\d+\:\d+).*?\"(?:(?P<httpmethod>\w+)\s+(?P<url>.*?)\s+.*?|\-)\"\s+(?P<eventid>\d+|\-)\s+(?:(?P<txlen>\d+|\-))?'
+  event-key-format: '{eventid}'
+  event-key-mapping:
+    '200':           
+      annotate:
+        Stream: WEBSERVER
+        action: URL_ALLOWED
+        Status: PASSED
+      translate: 
+        url: URL
+        httpmethod: Method
+        txlen: TXLen 
+    '404':           
+      annotate:
+        Stream: WEBSERVER
+        action: URL_BLOCKED
+        Status: FAILED
+      translate: 
+        url: URL
+        httpmethod: Method
+        txlen: TXLen                                    
+        
+  fallback:
+      annotate:
+        EventName: Generic Tomcat Webserver Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+
+- first-match: '\d+\-\d+\-\d+\s+\d+\:\d+\:\d+\s+\w+\s+\S+\s+\d+\s+(?:\d+|\-)\s+(?:\".*?\"|\-)'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\d+\-\d+\-\d+\s+\d+\:\d+\:\d+)\s+(?P<httpmethod>\w+)\s+(?P<url>\S+)\s+(?P<eventid>\d+)\s+(?:(?P<txlen>\d+)|(\-))\s+(?:\"(?P<httpreferer>.*?)\"|(\-))\s+(?:(?P<useragent>.*)|(\-))'
+  event-key-format: '{eventid}'
+  event-key-mapping:
+    '200':           
+      annotate:
+        Stream: WEBSERVER
+        action: URL_ALLOWED
+        Status: PASSED
+      translate: 
+        url: URL
+        httpmethod: Method
+        txlen: TXLen 
+        httpreferer: Referer
+        useragent: UserAgent                                   
+        
+  fallback:
+      annotate:
+        EventName: Generic Apache Webserver Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp      
