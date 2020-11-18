@@ -1,0 +1,60 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 245
+source-name: WATCHGUARD
+source-type: FIREWALL
+source-description: extractor for WatchGuard Firewall
+provides-streams:
+- NETWORK-FIREWALL
+master-filters:
+- '\(\d{4}\-\d{1,2}\-\d{2}\T\d{2}\:\d{2}\:\d{2}\)\s+(?:firewall|link-mon|networkd|networkd|sigd)(?:\[\d+\])?\:\s+msg\_id\=\"\S+\"\s+'
+event-details:  
+- first-match: \s+(?:firewall|link-mon|networkd|networkd|sigd)(?:\[\d+\])?\:\s+msg\_id\=\"\S+\"\s+
+  decoder: regex
+  decoder-regex: (?P<datetime>\w{3}\s+\d{1,2}\s+\d{2}\:\d{2}\:\d{2})\s+(?P<hostname>\S+)\s+(?P<device_id>\w+)\s+\(.*?\)\s+(?:firewall)?(?:(?:(?P<daemon>link-mon|networkd|sigd))\[(?P<pid>\d+)\])?\:\s+msg_id\=\"(?P<message_id>.*?)\"(?:\s+(?P<action>\w+)\s+(?P<iface_src>\S+)\s+(?P<iface_dst>.*?)(?:\s+(?P<returncode>\d+))?\s+(?P<proto>\w+)(?:\s+(?P<tlen>\d+)\s+(?P<ttl>\d+))?\s+(?P<src>[\d\.]+)\s+(?P<dst>[\d\.]+)\s+(?P<sport>\d+)\s+(?P<dport>\d+)\s+.*?(?:.*?route\_type\=\"(?P<route_type>.*?)\")?(?:\s+sent_bytes\=\"(?P<sent_bytes>\d+)\"\s+rcvd_bytes\=\"(?P<rcvd_bytes>\d+)\")?\s+(?:.*?msg\=\"(?P<msg>.*?\(reason\s+\=\s+(?P<reason>.*?)\))\")?(?:.*?\((?P<rulename>.*?)\))?)?(?:\s+(?P<message>[\[\]\'\s\w\-\(\)\.]+))?
+  event-key-format: '{action}'
+  event-key-mapping:
+    'Allow':           
+      annotate:
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_ALLOWED
+        Status: PASSED
+      translate: 
+        proto: Proto
+        src: SrcIP
+        dst: DstIP
+        sport: SrcPort
+        dport: DstPort
+        sent_bytes: TXLen
+        rcvd_bytes: RXLen 
+        #iface_src: IfaceSrc
+        #iface_dst: IfaceDst
+    'Deny':           
+      annotate:
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_BLOCKED
+        Status: FAILED
+      translate: 
+        proto: Proto
+        src: SrcIP
+        dst: DstIP
+        sport: SrcPort
+        dport: DstPort
+        sent_bytes: TXLen
+        rcvd_bytes: RXLen 
+        #iface_src: IfaceSrc
+        #iface_dst: IfaceDst 
+        #reason: Reason                                   
+        
+  fallback:
+      annotate:
+        EventName: Generic WatchGuard Firewall Event
+        Stream: OTHER
+      translate:  
+        datetime: SystemTstamp
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+      hostname: System
+     #message: Message
