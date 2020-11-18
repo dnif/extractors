@@ -1,0 +1,99 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 115
+source-name: FORTIWEB
+source-type: WAF
+source-description: extractor for FortiWeb WAF
+provides-streams:
+- WAF
+- AUTHENTICATION
+master-filters:
+- 'LEEF\:.*?\|Fortinet\|FortiWeb\|'
+event-details:  
+- first-match: 'LEEF\:.*?\|Fortinet\|FortiWeb\|.*?cat\=\"?\S+\"?\s+'
+  decoder: custom
+  decoder-regex: '([\w]+)\=([^\s]+)'
+  event-key-format: '{cat}-{action}-{processStatus}'
+  event-key-mapping:
+    'traffic-None-None':           
+      annotate:
+        Stream: WAF
+        Action: URL_ALLOWED
+        Status: PASSED
+      translate: 
+        proto: Proto
+        src: SrcIP
+        srcPort: SrcPort
+        dst: DstIP
+        dstPort: DstPort
+        srcBytes: TXLen
+        dstBytes: RXLen 
+        domain: Domain
+        requestMethod: Method
+        url: URL
+        httpAgent: UserAgent
+       #service: AppService
+       #serverPool: ServerPool
+       #reason: Reason
+    'attack-Alert-None':           
+      annotate:
+        Stream: WAF
+        Action: ATTACK_DETECTED
+        Status: PASSED
+      translate: 
+        proto: Proto
+        src: SrcIP
+        srcPort: SrcPort
+        dst: DstIP
+        dstPort: DstPort
+        srcBytes: TXLen
+        dstBytes: RXLen 
+        domain: Domain
+        requestMethod: Method
+        url: URL
+        attackType: AtkDesc
+        httpAgent: UserAgent
+       #service: AppService
+       #serverPool: ServerPool
+       #reason: Reason
+    'event-login-success':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGIN
+        Status: PASSED
+      translate: 
+        accountName: User
+    'event-login-failure':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGIN
+        Status: FAILED
+      translate: 
+        accountName: User   
+    'event-logout-success':           
+      annotate:
+        Stream: AUTHENTICATION
+        Action: LOGOUT
+        Status: PASSED
+      translate: 
+        accountName: User 
+    'event-browse-success':           
+      annotate:
+        Stream: WAF
+        Action: ATTACK_DETECTED
+        Status: PASSED
+      translate: 
+        accountName: User                                
+        
+  fallback:
+      annotate:
+        EventName: Generic FortiWeb WAF Event
+        Stream: OTHER
+      translate:  
+        devTime: SystemTstamp
+
+  globals:
+    translate:
+      devTime: SystemTstamp
+      logLevel: LogLevel
+     #message: Message
