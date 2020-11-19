@@ -1,0 +1,52 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 198
+source-name: OFFICESCAN-XG-WINEVT
+source-type: ANTIVIRUS
+source-description: extractor for OfficeScan-XG
+provides-streams:
+- ENDPOINT-THREAT
+master-filters:
+- '\"SourceName\"\:\"Trend\s+Micro\s+OfficeScan\s+Server\"\,'
+event-details:
+- first-match: '\"EventID\"\:(?:500|600)\,\"SourceName\"\:\"Trend\s+Micro\s+OfficeScan\s+Server\"\,'
+  decoder: regex
+  decoder-regex: '\"EventTime\"\:\"(?P<EventTime>\d+\-\d+\-\d+\s\d+\:\d+\:\d+)\"\,\"Hostname\"\:\"(?P<Hostname>.*?)\"\,.*?\"Severity\"\:\"(?P<Severity>.*?)\"\,\"EventID\"\:(?P<EventID>\d+)\,.*?\"ProcessID\"\:(?P<ProcessID>\d+)\,.*?\"Channel\"\:\"(?P<Channel>.*?)\"\,.*?\"AccountName\"\:\"(?P<AccountName>.*?)\"\,.*?\"Message\"\:\"(?P<Message>Virus\/Malware\:\s+(?P<VirusName>.*?)\\r.*?Endpoint\:\s+(?P<Endpoint>.*?)\\r.*?Domain\:\s+(?P<Domain>.*?)\\\\\\r.*?File\:\s+(?P<File>.*?)\\r.*?Result\:\s+(?P<Result>.*?)\\r.*?)\"\,\"Category\"\:\"(?P<Category>.*?)\"\,'
+  event-key-format: '{EventID}'
+  event-key-mapping:
+    '500':           
+      annotate:
+        Stream: ENDPOINT-THREAT
+        Action: VIRUS_DETECTED
+        Status: PASSED
+      translate: 
+        AccountName: User
+        Domain: Domain
+        File: FileName
+        #Endpoint: ScannedHost
+        #VirusName: VirusName
+    '600':           
+      annotate:
+        Stream: ENDPOINT-THREAT
+        Action: VIRUS_DETECTED
+        Status: PASSED
+      translate: 
+        AccountName: User
+        Domain: Domain
+        File: FileName
+        #Endpoint: ScannedHost
+        #VirusName: VirusName                                
+        
+  fallback:
+      annotate:
+        EventName: Generic OfficeScan-XG Event
+        Stream: OTHER
+      translate:  
+        devTime: SystemTstamp
+
+  globals:
+    translate:
+      EventTime: SystemTstamp
+      Hostname: System
+      Severity: Severity
+     #Message: Message
