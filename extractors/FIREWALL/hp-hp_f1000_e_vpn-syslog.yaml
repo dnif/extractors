@@ -1,0 +1,41 @@
+schema-version: 1.0
+#extractor-version: 1
+extractor-id: 202
+source-name: HP-F1000-E-VPN
+source-type: FIREWALL
+source-description: Extractor for HP-F1000-E-VPN Firewall
+provides-streams:
+- NETWORK-FIREWALL
+master-filters:
+- '\w{3}\s+\d{1,2}\s+\d{2}\:\d{2}\:\d{2}\s+\d{4}\s+\S+\s+\%\%(?:10FILTER\/\d+\/ZONE_DP_FLT_EXECUTION_UDP_LOG|10IC/\d+\/IC_SECLOG_USAGEHIGH|10STP/\d+/STP_NOTIFIED_TC|10DPVFR\/\d+\/ATCKDF)\(l\)\:'
+event-details:
+- first-match: '\%\%10FILTER\/6\/ZONE_DP_FLT_EXECUTION_UDP_LOG\(l\)\:'
+  decoder: regex
+  decoder-regex: '(?P<datetime>\w+\s+\d+\s+\d+\:\d+\:\d+\s+\d+)\s+(?P<hostname>.*?)\s+.*?srcZoneName\(\d+\)\=(?P<srcZoneName>.*?)\;.*?destZoneName\(\d+\)\=(?P<destZoneName>.*?)\;.*?rule_ID\(\d+\)\=(?P<rule_ID>.*?)\;.*?policyActType\(\d+\)\=(?P<policyActType>.*?)\;.*?protType\(\d+\)\=(?P<protType>.*?)\(\d+\)\;.*?srcIPAddr\(\d+\)\=(?P<srcIPAddr>.*?)\;.*?destIPAddr\(\d+\)\=(?P<destIPAddr>.*?)\;.*?srcPortNum\(\d+\)\=(?P<srcPortNum>.*?)\;.*?destPortNum\(\d+\)\=(?P<destPortNum>.*?)\;'
+  event-key-format: '{policyActType}'
+  event-key-mapping:
+    'permitted':
+      annotate:  
+        Stream: NETWORK-FIREWALL
+        Action: PACKET_ALLOWED
+        Status: PASSED   
+      translate:
+        protType: Proto
+        srcIPAddr: SrcIP
+        destIPAddr: DstIP
+        srcPortNum: SrcPort
+        destPortNum: DstPort
+        #srcZoneName: SrcZone
+        #destZoneName: DstZone
+
+  fallback:
+      annotate:
+        EventName: Generic HP-F1000-E-VPN Firewall Event
+        Stream: OTHER
+      translate:
+        datetime: SystemTstamp  
+
+  globals:
+    translate:
+      datetime: SystemTstamp
+      hostname: System
