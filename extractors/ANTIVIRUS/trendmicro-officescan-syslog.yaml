@@ -38,11 +38,11 @@ event-details:
         #VirusName: VirusName                                
         
   fallback:
-      annotate:
-        EventName: Generic OfficeScan-XG Event
-        Stream: OTHER
-      translate:  
-        devTime: SystemTstamp
+    annotate:
+      EventName: Generic OfficeScan-XG Event
+      Stream: OTHER
+    translate:  
+      devTime: SystemTstamp
 
   globals:
     translate:
