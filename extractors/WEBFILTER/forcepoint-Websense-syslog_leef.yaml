@@ -32,15 +32,15 @@ event-details:
         url: URL 
 
   fallback:
-      annotate:
-        EventName: Generic Websense Webfilter Event
-        Stream: OTHER 
+    annotate:
+      EventName: Generic Websense Webfilter Event
+      Stream: OTHER 
 
   globals:
     translate:
       sev: Severity
 
-  subs: &d001    
+  subs: &id001    
     Severity: 
       '0': 'LOW'
       '1': 'LOW'
@@ -77,12 +77,12 @@ event-details:
         url: URL
 
   fallback:
-      annotate:
-        EventName: Generic Websense Webfilter Event
-        Stream: OTHER 
+    annotate:
+      EventName: Generic Websense Webfilter Event
+      Stream: OTHER 
         
   globals:
     translate: 
       sev: Severity
 
-  subs: *d001       
+  subs: *id001       
