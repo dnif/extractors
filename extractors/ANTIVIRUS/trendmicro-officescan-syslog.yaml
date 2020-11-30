@@ -41,8 +41,6 @@ event-details:
     annotate:
       EventName: Generic OfficeScan-XG Event
       Stream: OTHER
-    translate:  
-      devTime: SystemTstamp
 
   globals:
     translate:
