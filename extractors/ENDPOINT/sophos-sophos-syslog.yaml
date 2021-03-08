@@ -30,8 +30,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::WebControlViolation":
       annotate:
         Stream: THREAT
@@ -47,8 +45,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::CorePuaDetection":
       annotate:
         Stream: THREAT
@@ -64,8 +60,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::Threat::HIPSDetected":
       annotate:
         Stream: THREAT
@@ -81,8 +75,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::WebFilteringBlocked":
       annotate:
         Stream: THREAT
@@ -98,8 +90,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::Threat::Detected":
       annotate:
         Stream: THREAT
@@ -115,8 +105,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::Threat::PuaDetected":
       annotate:
         Stream: THREAT
@@ -132,8 +120,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::HmpaMalwareDetected":
       annotate:
         Stream: THREAT
@@ -149,8 +135,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::HomeThreatRemnantsDetected":
       annotate:
         Stream: THREAT
@@ -166,8 +150,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::HmpaPuaDetected":
       annotate:
         Stream: THREAT
@@ -183,8 +165,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::CoreDetection":
       annotate:
         Stream: THREAT
@@ -200,8 +180,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::CoreRemoteDetection":
       annotate:
         Stream: THREAT
@@ -217,7 +195,6 @@ event-details:
         filePath: File
         Process: Process
         URL: URL
-        name: Suspect
     "Event::Smc::MitmAttackEvent::0":
       annotate:
         Stream: THREAT
@@ -233,8 +210,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::1":
       annotate:
         Stream: THREAT
@@ -250,8 +225,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::2":
       annotate:
         Stream: THREAT
@@ -267,8 +240,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::3":
       annotate:
         Stream: THREAT
@@ -284,8 +255,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::4":
       annotate:
         Stream: THREAT
@@ -301,8 +270,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::5":
       annotate:
         Stream: THREAT
@@ -318,8 +285,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Smc::MitmAttackEvent::6":
       annotate:
         Stream: THREAT
@@ -335,8 +300,6 @@ event-details:
         filepath: File
         Process: Process
         URL: URL
-        name: Suspect
-        dhost: Target
     "Event::Endpoint::UserAutoCreated":
       annotate:
         Stream: IAM
