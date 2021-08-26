@@ -136,263 +136,263 @@ event-details:
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Approval Request created':
       annotate:
         Stream: CONFIGURATION
-        Action: REQUEST_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Approval Request modified':
       annotate:
         Stream: CONFIGURATION
-        Action: REQUEST_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Approval Request closed':
       annotate:
         Stream: CONFIGURATION
-        Action: REQUEST_CLOSED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Certificate approval created':
       annotate:
         Stream: CONFIGURATION
-        Action: CERTIFICATE_APPROVAL_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Certificate approval deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: CERTIFICATE_APPROVAL_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Certificate approval modified':
       annotate:
         Stream: CONFIGURATION
-        Action: CERTIFICATE_APPROVAL_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Certificate ban created':
       annotate:
         Stream: CONFIGURATION
-        Action: CERTIFICATE_BAN_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Custom Rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Custom Rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Custom Rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Device Rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Device Rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Device Rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File approval created':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_APPROVAL_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File approval deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_APPROVAL_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File approval modified':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_APPROVAL_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File ban created':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_BAN_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File ban deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_BAN_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File ban modified':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_BAN_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-File properties modified':
       annotate:
         Stream: CONFIGURATION
-        Action: FILE_PROPERTIES_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Memory Rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Memory Rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Memory Rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Notifier created':
       annotate:
         Stream: CONFIGURATION
-        Action: NOTIFIER_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Notifier deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: NOTIFIER_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Notifier modified':
       annotate:
         Stream: CONFIGURATION
-        Action: NOTIFIER_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Policy created':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Policy deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Policy modified':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Registry Rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Registry Rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Registry Rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Reputation settings modified':
       annotate:
         Stream: CONFIGURATION
@@ -400,151 +400,151 @@ event-details:
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Script Rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Script Rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Script Rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Trusted Directory created':
       annotate:
         Stream: CONFIGURATION
-        Action: DIRECTORY_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Trusted Directory deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: DIRECTORY_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Trusted Directory modified':
       annotate:
         Stream: CONFIGURATION
-        Action: DIRECTORY_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Unified rule overridden':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_OVERRIDDEN
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Yara rule created':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Yara rule modified':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Policy Management-Yara rule deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Server Management-Rapid Config created':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Server Management-Rapid Config deleted':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Server Management-Rapid Config modified':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Server Management-Rapid Config updated':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Server Management-Server config modified':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Computer Management-Agent config modified':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_MODIFIED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Computer Management-Agent Policy changed':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CHANGED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Computer Management-Agent Policy updated':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Computer Management-Configuration changed':
       annotate:
         Stream: CONFIGURATION
@@ -552,7 +552,7 @@ event-details:
         Status: PASSED
       translate:
         username: User
-        Config: Config
+        subtype: Config
     'Discovery-Banned file written to computer':
       annotate:
         Stream: THREAT

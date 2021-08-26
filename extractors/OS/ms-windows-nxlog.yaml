@@ -414,7 +414,7 @@ event-details:
     '4781':
       annotate:
         Stream: IAM
-        Action: USER_CREDENTIALS_UPDATED
+        Action: USER_UPDATED
         Status: PASSED 
       translate:  
         SubjectUserName: User  
@@ -1226,7 +1226,7 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
-        Config: FIREWALL_SERVICE_START
+        Config: Firewall Service Start
       translate: 
         SubjectUserName: User  
     '5025':
@@ -1234,7 +1234,7 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED  
-        Config: FIREWALL_SERVICE_STOP  
+        Config: Firewall Service Stop  
       translate: 
         SubjectUserName: User  
     '5027':
@@ -1242,31 +1242,31 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: FAILED    
+        Config: Firewall Service Unable
       translate: 
-        SubjectUserName: User 
-        Config: Config   
+        SubjectUserName: User   
     '5028':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
-        Status: FAILED    
+        Status: FAILED
+        Config: Firewall Service Unable     
       translate: 
         SubjectUserName: User 
-        Config: Config   
     '5029':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
-        Status: FAILED    
+        Status: FAILED 
+        Config: Firewall Service Failed   
       translate: 
-        SubjectUserName: User 
-        Config: Config   
+        SubjectUserName: User    
     '5030':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: FAILED
-        Config: FIREWALL_SERVICE_START    
+        Config: Firewall Service Start  
       translate: 
         SubjectUserName: User
     '5032':
@@ -1274,15 +1274,15 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
+        Config: Firewall Service Unable
       translate: 
         SubjectUserName: User 
-        Config: Config   
     '5033':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
-        Config: FIREWALL_DRIVER_START
+        Config: Firewall Driver Start
       translate: 
         SubjectUserName: User 
     '5034':
@@ -1290,7 +1290,7 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
-        Config: FIREWALL_DRIVER_STOP
+        Config: Firewall Driver Stop
       translate: 
         SubjectUserName: User    
     '5035':
@@ -1298,7 +1298,7 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: FAILED
-        Config: FIREWALL_DRIVER_START 
+        Config: Firewall Driver Start
       translate: 
         SubjectUserName: User   
     '5037':
@@ -1306,15 +1306,15 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
+        Config: Firewall Driver Detected Critical Runtime Error
       translate: 
         SubjectUserName: User 
-        Config: Config   
     '4608':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED   
-        Config: SYSTEM_START
+        Config: System Start
       translate: 
         SubjectUserName: User    
     '4609':
@@ -1322,33 +1322,33 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED    
-        Config: SYSTEM_SHUT_DOWN
+        Config: System Shut Down
       translate: 
         SubjectUserName: User    
     '4616':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
-        Status: PASSED    
+        Status: PASSED  
+        Config: System Time Changed  
       translate: 
-        SubjectUserName: User 
-        Config: Config   
+        SubjectUserName: User   
     '4621':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
-        Status: PASSED    
+        Status: PASSED 
+        Config: Administrator Recovered    
       translate: 
-        SubjectUserName: User 
-        Config: Config   
+        SubjectUserName: User  
     '4697':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
-        Status: PASSED    
+        Status: PASSED 
+        Config: Service Installed    
       translate: 
-        SubjectUserName: User 
-        Config: Config                                                                                                  
+        SubjectUserName: User                                                                                                  
 
   fallback:
     annotate:

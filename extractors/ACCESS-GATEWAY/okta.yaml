@@ -360,7 +360,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "Update user profile for Okta-FAILURE":
       annotate:
         Stream: IAM
@@ -369,7 +369,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User accessing Okta administrator app-SUCCESS":
       annotate:
         Stream: IAM
@@ -378,7 +378,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User accessing Okta administrator app-FAILURE":
       annotate:
         Stream: IAM
@@ -387,7 +387,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User reset password for Okta-SUCCESS":
       annotate:
         Stream: IAM
@@ -396,7 +396,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User reset password for Okta-FAILURE":
       annotate:
         Stream: IAM
@@ -405,7 +405,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "Create okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -414,7 +414,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role 
+        eventType: Role
     "Create okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -423,7 +423,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "Delete Okta user completed-SUCCESS":
       annotate:
         Stream: IAM
@@ -432,7 +432,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "Delete Okta user completed-FAILURE":
       annotate:
         Stream: IAM
@@ -441,7 +441,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "Activate Okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -450,7 +450,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role
+        eventType: Role
     "Activate Okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -459,7 +459,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role
+        eventType: Role
     "Deactivate Okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -468,7 +468,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role  
     "Deactivate Okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -477,7 +477,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role    
     "Reactivate Okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -486,7 +486,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role   
     "Reactivate Okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -495,7 +495,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role   
     "Suspend Okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -504,7 +504,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role  
     "Suspend Okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -513,7 +513,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role 
     "Unsuspend Okta user-SUCCESS":
       annotate:
         Stream: IAM
@@ -522,7 +522,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role   
+        eventType: Role  
     "Unsuspend Okta user-FAILURE":
       annotate:
         Stream: IAM
@@ -531,7 +531,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role   
     "User update password for Okta-SUCCESS":
       annotate:
         Stream: IAM
@@ -540,7 +540,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "User update password for Okta-FAILURE":
       annotate:
         Stream: IAM
@@ -549,7 +549,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role
     "Auto-lock user account for Okta-SUCCESS":
       annotate:
         Stream: IAM
@@ -558,7 +558,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "Auto-lock user account for Okta-FAILURE":
       annotate:
         Stream: IAM
@@ -567,7 +567,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role
     "Auto-unlock user account for Okta-SUCCESS":
       annotate:
         Stream: IAM
@@ -576,7 +576,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role
     "Auto-unlock user account for Okta-FAILURE":
       annotate:
         Stream: IAM
@@ -585,7 +585,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "User account unlock by admin-SUCCESS":
       annotate:
         Stream: IAM
@@ -594,7 +594,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role
     "User account unlock by admin-FAILURE":
       annotate:
         Stream: IAM
@@ -603,7 +603,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User's admin privilege granted-SUCCESS":
       annotate:
         Stream: IAM
@@ -612,7 +612,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "User's admin privilege granted-FAILURE":
       annotate:
         Stream: IAM
@@ -621,7 +621,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role
     "User's admin privilege revoked-SUCCESS":
       annotate:
         Stream: IAM
@@ -630,7 +630,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role  
     "User's admin privilege revoked-FAILURE":
       annotate:
         Stream: IAM
@@ -639,7 +639,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role  
+        eventType: Role 
     "Add user to application membership-SUCCESS":
       annotate:
         Stream: IAM
@@ -648,7 +648,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role
+        eventType: Role
     "Add user to application membership-FAILURE":
       annotate:
         Stream: IAM
@@ -657,7 +657,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role
+        eventType: Role
     "Remove user's application membership-SUCCESS":
       annotate:
         Stream: IAM
@@ -666,7 +666,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role   
+        eventType: Role 
     "Remove user's application membership-FAILURE":
       annotate:
         Stream: IAM
@@ -675,7 +675,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role   
+        eventType: Role
     "Successfully imported new member to an app group-SUCCESS":
       annotate:
         Stream: IAM
@@ -684,7 +684,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role  
     "Successfully imported new member to an app group-FAILURE":
       annotate:
         Stream: IAM
@@ -693,7 +693,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role    
+        eventType: Role   
     "Add user to group membership-SUCCESS":
       annotate:
         Stream: IAM
@@ -702,7 +702,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role   
+        eventType: Role  
     "Add user to group membership-FAILURE":
       annotate:
         Stream: IAM
@@ -711,7 +711,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role         
+        eventType: Role     
     "Remove user from group membership-SUCCESS":
       annotate:
         Stream: IAM
@@ -720,7 +720,7 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role   
+        eventType: Role  
     "Remove user from group membership-FAILURE":
       annotate:
         Stream: IAM
@@ -729,183 +729,183 @@ event-details:
       translate:
         actor[displayName]: User
         target[displayName]: TargetUser
-        Role: Role         
+        eventType: Role         
     "Create policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config  
+        displayMessage: Config  
     "Create policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CREATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config    
+        displayMessage: Config    
     "Delete policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config   
+        displayMessage: Config   
     "Delete policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config   
+        displayMessage: Config   
     "Activate policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_ACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config  
+        displayMessage: Config  
     "Activate policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_ACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config   
+        displayMessage: Config   
     "Deactivate policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DEACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config  
+        displayMessage: Config  
     "Deactivate policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DEACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config  
+        displayMessage: Config  
     "Overwrite policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CHANGED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config   
+        displayMessage: Config   
     "Overwrite policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_CHANGED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config   
+        displayMessage: Config   
     "Update policy-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config    
+        displayMessage: Config    
     "Update policy-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config    
+        displayMessage: Config    
     "Add policy rule-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_ADDED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Add policy rule-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_ADDED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Delete policy rule-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Delete policy rule-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Update policy rule-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Update policy rule-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_UPDATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Activate policy rule-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_ACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Activate policy rule-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_ACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Deactivate policy rule-SUCCESS":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DEACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Deactivate policy rule-FAILURE":
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DEACTIVATED
+        Action: CONFIGURATION_CHANGED
         Status: FAILED
       translate:
         actor[displayName]: User
-        Config: Config
+        displayMessage: Config
     "Request from suspicious actor-ALLOW":
       annotate:
         Stream: THREAT

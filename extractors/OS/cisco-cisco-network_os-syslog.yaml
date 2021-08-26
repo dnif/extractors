@@ -289,7 +289,7 @@ event-details:
       translate:
         target_user: TargetUser
         user: User
-        role: Role
+        Role: Role
 
   fallback:
     annotate:
@@ -312,7 +312,7 @@ event-details:
         Status: PASSED
       translate:
         user: User
-        config: Config
+        Config: Config
 
   fallback:
     annotate:
@@ -335,7 +335,7 @@ event-details:
         Status: PASSED
       translate:
         user: User
-        config: Config
+        Config: Config
     'ARCHIVE_SKIPPED':
       annotate:
         Stream: CONFIGURATION
@@ -343,7 +343,7 @@ event-details:
         Status: FAILED
       translate:
         user: User
-        config: Config 
+        Config: Config 
     'LOG_CONFIG_CHANGE':
       annotate:
         Stream: CONFIGURATION
@@ -351,7 +351,7 @@ event-details:
         Status: PASSED
       translate:
         user: User
-        config: Config       
+        Config: Config       
 
   fallback:
     annotate:

@@ -604,17 +604,17 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Web Category Settings Changed
       translate:
         User: User
-        Config: Config
     '062009517503-Successful-Event':
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_DELETED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Firewall Rule(s) Deleted
       translate:
-        User: User
-        Config: Config       
+        User: User    
     '062009517504-Successful-Event':
       annotate:
         Stream: IAM
@@ -623,7 +623,7 @@ event-details:
       translate:
         user_name: User
         USER: TargetUser
-        Role: Role       
+        log_subtype: Role       
     '020803407001--IDP':
       annotate:
         Stream: THREAT

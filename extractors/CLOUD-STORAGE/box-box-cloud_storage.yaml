@@ -205,9 +205,9 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Application Public Key Added
       translate:
-        created_by[name]: User
-        Config: Config 
+        created_by[name]: User 
     'ADD_LOGIN_ACTIVITY_DEVICE':
       annotate:
         Stream: AUTHENTICATION

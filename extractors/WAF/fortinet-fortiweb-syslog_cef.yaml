@@ -89,7 +89,7 @@ event-details:
       translate:
         spriv: User
         cs1: TargetUser
-        Role: Role   
+        spriv: Role
           
   fallback:
     annotate:

@@ -84,7 +84,7 @@ event-details:
       translate: 
         actor[email]: User
         TargetUser: TargetUser
-        Role: Role     
+        id[applicationName]: Role     
     'USER_SETTINGS-CHANGE_PASSWORD': 
       annotate:
         Stream: IAM
@@ -93,7 +93,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role  
+        id[applicationName]: Role  
     'USER_SETTINGS-CREATE_USER': 
       annotate:
         Stream: IAM
@@ -102,7 +102,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role   
+        id[applicationName]: Role   
     'USER_SETTINGS-DELETE_USER': 
       annotate:
         Stream: IAM
@@ -111,7 +111,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role       
+        id[applicationName]: Role       
     'USER_SETTINGS-REMOVE_RECOVERY_PHONE': 
       annotate:
         Stream: IAM
@@ -120,7 +120,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role           
+        id[applicationName]: Role           
     'USER_SETTINGS-UNENROLL_USER_FROM_STRONG_AUTH': 
       annotate:
         Stream: IAM
@@ -129,16 +129,16 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role       
+        id[applicationName]: Role       
     'USER_SETTINGS-CHANGE_FIRST_NAME': 
       annotate:
         Stream: IAM
-        Action: USER_CREDENTIALS_UPDATED
+        Action: USER_UPDATED
         Status: PASSED
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role                   
+        id[applicationName]: Role                   
     'GROUP_SETTINGS-ADD_GROUP_MEMBER': 
       annotate:
         Stream: IAM
@@ -147,7 +147,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role  
+        id[applicationName]: Role  
     'GROUP_SETTINGS-REMOVE_GROUP_MEMBER': 
       annotate:
         Stream: IAM
@@ -156,7 +156,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role      
+        id[applicationName]: Role      
     'LICENSES_SETTINGS-USER_LICENSE_ASSIGNMENT': 
       annotate:
         Stream: IAM
@@ -165,7 +165,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role 
+        id[applicationName]: Role 
     'LICENSES_SETTINGS-USER_LICENSE_REVOKE': 
       annotate:
         Stream: IAM
@@ -174,7 +174,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role 
+        id[applicationName]: Role 
     'USER_SETTINGS-SUSPEND_USER': 
       annotate:
         Stream: IAM
@@ -183,7 +183,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role   
+        id[applicationName]: Role   
     'USER_SETTINGS-REVOKE_3LO_TOKEN': 
       annotate:
         Stream: IAM
@@ -192,7 +192,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role 
+        id[applicationName]: Role 
     'MOBILE_SETTINGS-CUSTOMER_USER_DEVICE_DELETION_EVENT': 
       annotate:
         Stream: IAM
@@ -201,7 +201,7 @@ event-details:
       translate: 
         actor[email]: User
         TargetUser: TargetUser
-        Role: Role  
+        id[applicationName]: Role  
     'DOMAIN_SETTINGS-AUTHORIZE_API_CLIENT_ACCESS': 
       annotate:
         Stream: IAM
@@ -210,7 +210,7 @@ event-details:
       translate: 
         actor[email]: User
         events[0][parameters][0][value]: TargetUser
-        Role: Role 
+        id[applicationName]: Role 
     'event_change-delete_event': 
       annotate:
         Stream: CALENDAR  

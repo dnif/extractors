@@ -225,7 +225,7 @@ event-details:
     'Install Policy':
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_INSTALLED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:
         additional_info: Config

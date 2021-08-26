@@ -177,7 +177,7 @@ event-details:
     'AGS IPS Policy': 
       annotate:
         Stream: CONFIGURATION
-        Action: RULE_ADDED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:  
         config : Config
@@ -185,7 +185,7 @@ event-details:
     'Policy Deployment': 
       annotate:
         Stream: CONFIGURATION
-        Action: POLICY_DEPLOYED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
       translate:  
         config : Config

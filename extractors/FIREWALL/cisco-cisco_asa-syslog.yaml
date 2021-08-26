@@ -709,49 +709,49 @@ event-details:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Configuration Set
       translate:
         user: User
-        Config: Config
     '713204':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Adding Static Route
       translate:
-        user: User
-        Config: Config 
+        user: User 
     '402131':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Hardware Accelerator's Configuration
       translate:
         user: User
-        Config: Config 
     '748001':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Cluster Control Link Changed
       translate:
         user: User
-        Config: Config
     '111003':
       annotate:
         Stream: CONFIGURATION
-        Action: CONFIGURATION_ERASED
+        Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Erase Configuration
       translate:
         user: User
-        Config: Config 
     '713273':
       annotate:
         Stream: CONFIGURATION
         Action: CONFIGURATION_CHANGED
         Status: PASSED
+        Config: Deleting Static Route
       translate:
-        user: User
-        Config: Config            
+        user: User        
     
   fallback:
     annotate:
