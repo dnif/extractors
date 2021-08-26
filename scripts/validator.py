@@ -7,7 +7,7 @@ from colorama import Fore
 
 path = os.environ["INPUT_MYINPUT"]
 valid_translate = yaml.safe_load(open(os.path.join(path, "scripts/stream_translate_guide.yaml")))
-valid_annotate = ['Action', 'Reason', 'Status', 'Stream', 'Vector', 'AuthProto', 'User', 'Threat', 'Query', 'QueryType', 'Event', 'Category', 'EventName', 'Config']
+valid_annotate = ['Action', 'Reason', 'Status', 'Stream', 'Vector', 'AuthProto', 'User', 'Threat', 'Query', 'QueryType', 'Event', 'Category', 'EventName', 'Config', 'Role']
 extractor_path = os.path.join(path, "extractors")
 
 def main():
